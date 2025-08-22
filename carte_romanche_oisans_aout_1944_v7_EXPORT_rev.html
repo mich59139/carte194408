@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_175fc4e3091e038258f576b64e33b257 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_175fc4e3091e038258f576b64e33b257" ></div>
+        
+
+<style>
+.leaflet-control.custom-logo{background:rgba(255,255,255,0.95);border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.15);padding:4px 6px;z-index:9999}
+.leaflet-control.custom-logo img{display:block;height:34px}
+@media (max-width:640px){.leaflet-control.custom-logo img{height:26px}}
+.leaflet-bar.select-wrap{padding:2px;background:rgba(255,255,255,0.95);border-radius:4px}
+.leaflet-bar.select-wrap select{border:0;background:transparent;font:12px/1.2 system-ui,Segoe UI,Arial;padding:2px 4px}
+</style>
+
+<script>
+(function(){
+  var LogoCtl = L.Control.extend({
+    options:{position:'bottomright'},
+    onAdd:function(map){
+      var d=L.DomUtil.create('div','leaflet-control custom-logo');
+      var i=L.DomUtil.create('img','',d); i.src='logo_amis_histoire.png?v=20250822-1'; i.alt="Les Amis de l'Histoire"; i.title=i.alt;
+      return d;
+    }
+  });
+  map_175fc4e3091e038258f576b64e33b257.addControl(new LogoCtl());
+})();
+</script>
+
+<script>
+(function(){
+  var VIEWS={
+    "Basse Romanche (Vizille↔Séchilienne, Rivoirands inclus)": L.latLngBounds([[45.050, 5.770],[45.095, 5.860]]),
+    "Oisans élargi": L.latLngBounds([[45.030, 5.750],[45.145, 6.060]])
+  };
+  try{ map_175fc4e3091e038258f576b64e33b257.fitBounds(VIEWS["Basse Romanche (Vizille↔Séchilienne, Rivoirands inclus)"],{padding:[18,18]}); }catch(e){}
+  var homeC=map_175fc4e3091e038258f576b64e33b257.getCenter(), homeZ=map_175fc4e3091e038258f576b64e33b257.getZoom();
+  var Home=L.Control.extend({options:{position:'topleft'},onAdd:function(map){var c=L.DomUtil.create('div','leaflet-bar');var a=L.DomUtil.create('a','',c);a.href='#';a.title='Recentrer';a.innerHTML='⌂';a.style.fontWeight='700';a.style.lineHeight='26px';a.style.padding='0 8px';L.DomEvent.on(a,'click',function(e){L.DomEvent.stop(e);map.setView(homeC,homeZ,{animate:true});});return c;}});
+  map_175fc4e3091e038258f576b64e33b257.addControl(new Home());
+  var ViewCtl=L.Control.extend({options:{position:'topleft'},onAdd:function(map){var w=L.DomUtil.create('div','leaflet-bar select-wrap');var s=L.DomUtil.create('select','',w);s.title='Changer de cadrage';for(var k in VIEWS){var o=document.createElement('option');o.value=k;o.textContent=k;s.appendChild(o);}s.value="Basse Romanche (Vizille↔Séchilienne, Rivoirands inclus)";L.DomEvent.on(s,'change',function(){map.fitBounds(VIEWS[s.value],{padding:[18,18]});homeC=map.getCenter();homeZ=map.getZoom();});return w;}});
+  map_175fc4e3091e038258f576b64e33b257.addControl(new ViewCtl());
+})();
+</script>
+
+<script src="https://unpkg.com/leaflet-image@latest/leaflet-image.js"></script>
+<script>
+(function(){
+  var E=L.Control.extend({options:{position:'topleft'},onAdd:function(m){
+    var c=L.DomUtil.create('div','leaflet-bar');var a=L.DomUtil.create('a','',c);
+    a.href='#';a.title='Exporter PNG (avec logo)';a.innerHTML='PNG';a.style.padding='0 8px';a.style.lineHeight='26px';
+    L.DomEvent.on(a,'click',function(e){
+      L.DomEvent.stop(e);
+      leafletImage(map_175fc4e3091e038258f576b64e33b257,function(err,canvas){
+        if(err){alert(err);return;}
+        var scale=2,out=document.createElement('canvas');out.width=canvas.width*scale;out.height=canvas.height*scale;
+        var ctx=out.getContext('2d');ctx.scale(scale,scale);ctx.drawImage(canvas,0,0);
+        var logo=new Image();logo.onload=function(){var w=Math.min(160,logo.width);var r=w/logo.width;var h=logo.height*r;ctx.drawImage(logo,12,out.height/scale-h-40,w,h);var a2=document.createElement('a');a2.download='carte_romanche_oisans_aout_1944.png';a2.href=out.toDataURL('image/png');a2.click();};logo.onerror=function(){var a2=document.createElement('a');a2.download='carte_romanche_oisans_aout_1944.png';a2.href=out.toDataURL('image/png');a2.click();};logo.src='logo_amis_histoire.png?v=20250822-1';});
+    });return c;}});
+  map_175fc4e3091e038258f576b64e33b257.addControl(new E());
+})();
+</script>
+
+</body>
+<script>
+    
+    
+            var map_175fc4e3091e038258f576b64e33b257 = L.map(
+                "map_175fc4e3091e038258f576b64e33b257",
+                {
+                    center: [45.07, 5.82],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_cc08af417eff3b6bc7e21ee2ddcb0511 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_175fc4e3091e038258f576b64e33b257);
+        
+    
+            var feature_group_b4d8898387f6f463e1f90cc2635e6763 = L.featureGroup(
+                {}
+            ).addTo(map_175fc4e3091e038258f576b64e33b257);
+        
+    
+            var marker_cluster_31801357da6171975cfa0619231ecbb9 = L.markerClusterGroup(
+                {}
+            );
+            feature_group_b4d8898387f6f463e1f90cc2635e6763.addLayer(marker_cluster_31801357da6171975cfa0619231ecbb9);
+        
+    
+            var marker_a0289f995605518dc3458d4fe80a6a41 = L.marker(
+                [45.0919, 5.9031],
+                {}
+            ).addTo(marker_cluster_31801357da6171975cfa0619231ecbb9);
+        
+    
+        var popup_bf5d0dab713558149fc33826c226e065 = L.popup({"maxWidth": 420});
+
+        
+            var html_05f824acd3b9eb5860a901f606afd0b6 = $(`<div id="html_05f824acd3b9eb5860a901f606afd0b6" style="width: 100.0%; height: 100.0%;"><div style='font-size:13px'><b>Rioupéroux (Livet‑et‑Gavet) — Centre du dispositif</b><br><b>Commune :</b> Livet‑et‑Gavet (Oisans)<br><b>Dates :</b> ≈ 12–21 août 1944 · 22 août 1944<br><div style='margin-top:4px'>Centre du dispositif allemand & Gestapo (août 1944). 22/08 : combats de repli ; 14e Cie Indochinoise : 3 morts ; 1 capturé puis exécuté.</div></div></div>`)[0];
+            popup_bf5d0dab713558149fc33826c226e065.setContent(html_05f824acd3b9eb5860a901f606afd0b6);
+        
+
+        marker_a0289f995605518dc3458d4fe80a6a41.bindPopup(popup_bf5d0dab713558149fc33826c226e065)
+        ;
+
+        
+    
+    
+            marker_a0289f995605518dc3458d4fe80a6a41.bindTooltip(
+                `<div>
+                     Rioupéroux (Livet‑et‑Gavet) — Centre du dispositif — ≈ 12–21 août 1944 · 22 août 1944
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0d47e12ed3cfb4c3c7bc02ccb6f4dbaf = L.marker(
+                [45.0511, 5.8986],
+                {}
+            ).addTo(marker_cluster_31801357da6171975cfa0619231ecbb9);
+        
+    
+        var popup_160da0ac878e2ceb2baf4ae60ac4985a = L.popup({"maxWidth": 420});
+
+        
+            var html_410180e018273b5990df7ce8b334a50b = $(`<div id="html_410180e018273b5990df7ce8b334a50b" style="width: 100.0%; height: 100.0%;"><div style='font-size:13px'><b>Lac du Poursollet — attaque du 13 août</b><br><b>Commune :</b> Livet‑et‑Gavet (Poursollet)<br><b>Dates :</b> 13 août 1944<br><div style='margin-top:4px'>ARMAND · CHARIGLIONE · GILLY · KOÏFMAN · VALLIN (+1 inconnu) tués au combat ; PARDÉ (blessé puis exécuté) ; RIMEY‑MEILLE (exécuté).</div></div></div>`)[0];
+            popup_160da0ac878e2ceb2baf4ae60ac4985a.setContent(html_410180e018273b5990df7ce8b334a50b);
+        
+
+        marker_0d47e12ed3cfb4c3c7bc02ccb6f4dbaf.bindPopup(popup_160da0ac878e2ceb2baf4ae60ac4985a)
+        ;
+
+        
+    
+    
+            marker_0d47e12ed3cfb4c3c7bc02ccb6f4dbaf.bindTooltip(
+                `<div>
+                     Lac du Poursollet — attaque du 13 août — 13 août 1944
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_51b2a4f135a2bbfea812620b2a40faf1 = L.marker(
+                [45.091165, 5.909787],
+                {}
+            ).addTo(marker_cluster_31801357da6171975cfa0619231ecbb9);
+        
+    
+        var popup_ecde1507a58e6750da396e0471fc325f = L.popup({"maxWidth": 420});
+
+        
+            var html_e13b1e4ddaf661d570d3cc1a63b3013a = $(`<div id="html_e13b1e4ddaf661d570d3cc1a63b3013a" style="width: 100.0%; height: 100.0%;"><div style='font-size:13px'><b>Les Clots (Rioupéroux) — charniers</b><br><b>Commune :</b> Livet‑et‑Gavet<br><b>Dates :</b> 16–19 août 1944<br><div style='margin-top:4px'>ARRICAU · AZOUZ · BONIFASSI · CARRIER · DUFFAUD · FERRER · HERNANDEZ · JUAN · PORQUET · SUTTER.</div></div></div>`)[0];
+            popup_ecde1507a58e6750da396e0471fc325f.setContent(html_e13b1e4ddaf661d570d3cc1a63b3013a);
+        
+
+        marker_51b2a4f135a2bbfea812620b2a40faf1.bindPopup(popup_ecde1507a58e6750da396e0471fc325f)
+        ;
+
+        
+    
+    
+            marker_51b2a4f135a2bbfea812620b2a40faf1.bindTooltip(
+                `<div>
+                     Les Clots (Rioupéroux) — charniers — 16–19 août 1944
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b3b170453e0cb9d404aa89565f54cfe5 = L.marker(
+                [45.055, 5.87],
+                {}
+            ).addTo(marker_cluster_31801357da6171975cfa0619231ecbb9);
+        
+    
+        var popup_bd3d866d829991c5313082d60694cc50 = L.popup({"maxWidth": 420});
+
+        
+            var html_051f820ab5213fd0615eeb57f4186f9b = $(`<div id="html_051f820ab5213fd0615eeb57f4186f9b" style="width: 100.0%; height: 100.0%;"><div style='font-size:13px'><b>Gavet — Fonfroide (approx.)</b><br><b>Commune :</b> Livet‑et‑Gavet (Gavet)<br><b>Dates :</b> 17 &amp; 19 août 1944<br><div style='margin-top:4px'>Groupes exécutés (découverts 19 & 22/08). + 18/08 : Max ROBERT exécuté.</div></div></div>`)[0];
+            popup_bd3d866d829991c5313082d60694cc50.setContent(html_051f820ab5213fd0615eeb57f4186f9b);
+        
+
+        marker_b3b170453e0cb9d404aa89565f54cfe5.bindPopup(popup_bd3d866d829991c5313082d60694cc50)
+        ;
+
+        
+    
+    
+            marker_b3b170453e0cb9d404aa89565f54cfe5.bindTooltip(
+                `<div>
+                     Gavet — Fonfroide (approx.) — 17 & 19 août 1944
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4496126771f337372fed625f009f9ba6 = L.marker(
+                [45.0575, 5.8375],
+                {}
+            ).addTo(marker_cluster_31801357da6171975cfa0619231ecbb9);
+        
+    
+        var popup_2183e0cb648f83b22c856a599738100e = L.popup({"maxWidth": 420});
+
+        
+            var html_73e596df56795dd37d6daad488dfb227 = $(`<div id="html_73e596df56795dd37d6daad488dfb227" style="width: 100.0%; height: 100.0%;"><div style='font-size:13px'><b>Séchilienne — Les Clots (stèle, approx.)</b><br><b>Commune :</b> Séchilienne<br><b>Dates :</b> 12 août 1944<br><div style='margin-top:4px'>Village incendié ; 5 habitants tués : H. & M. BOUJARD · B. KLEINBERG · L. MATHIEU · J. REY.</div></div></div>`)[0];
+            popup_2183e0cb648f83b22c856a599738100e.setContent(html_73e596df56795dd37d6daad488dfb227);
+        
+
+        marker_4496126771f337372fed625f009f9ba6.bindPopup(popup_2183e0cb648f83b22c856a599738100e)
+        ;
+
+        
+    
+    
+            marker_4496126771f337372fed625f009f9ba6.bindTooltip(
+                `<div>
+                     Séchilienne — Les Clots (stèle, approx.) — 12 août 1944
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cc5c057106a9eeb9609c18bc2ca58079 = L.marker(
+                [45.0542, 5.8348],
+                {}
+            ).addTo(marker_cluster_31801357da6171975cfa0619231ecbb9);
+        
+    
+        var popup_0b36b35f13d847ef79378883c33c1c4f = L.popup({"maxWidth": 420});
+
+        
+            var html_2cd1d80aa8b59577fe44cef3b976ee4a = $(`<div id="html_2cd1d80aa8b59577fe44cef3b976ee4a" style="width: 100.0%; height: 100.0%;"><div style='font-size:13px'><b>Séchilienne — Combats de repli (centre)</b><br><b>Commune :</b> Séchilienne<br><b>Dates :</b> 22 août 1944<br><div style='margin-top:4px'>14e Cie Indochinoise : Lam NGUYEN · Vu Van NGUYEN CHUYEN · Tuho TU TRAN · Lê/Lo VAN LOI.</div></div></div>`)[0];
+            popup_0b36b35f13d847ef79378883c33c1c4f.setContent(html_2cd1d80aa8b59577fe44cef3b976ee4a);
+        
+
+        marker_cc5c057106a9eeb9609c18bc2ca58079.bindPopup(popup_0b36b35f13d847ef79378883c33c1c4f)
+        ;
+
+        
+    
+    
+            marker_cc5c057106a9eeb9609c18bc2ca58079.bindTooltip(
+                `<div>
+                     Séchilienne — Combats de repli (centre) — 22 août 1944
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b549355d8a59a48aa2ff8a1e972cb8ff = L.marker(
+                [45.0753, 5.7729],
+                {}
+            ).addTo(marker_cluster_31801357da6171975cfa0619231ecbb9);
+        
+    
+        var popup_6ea1b5dffc5f82a09ccaa61d3ed4273f = L.popup({"maxWidth": 420});
+
+        
+            var html_97c9ca3785105b10841c8711b2147617 = $(`<div id="html_97c9ca3785105b10841c8711b2147617" style="width: 100.0%; height: 100.0%;"><div style='font-size:13px'><b>Vizille — Place du château (approx.)</b><br><b>Commune :</b> Vizille<br><b>Dates :</b> 8 mars 1944 · 22 août 1944<br><div style='margin-top:4px'>08/03 : Georges DAILLENCOURT exécuté. 22/08 : Mitraillage — JOURDAN · MACHOT · SOUTISON tués.</div></div></div>`)[0];
+            popup_6ea1b5dffc5f82a09ccaa61d3ed4273f.setContent(html_97c9ca3785105b10841c8711b2147617);
+        
+
+        marker_b549355d8a59a48aa2ff8a1e972cb8ff.bindPopup(popup_6ea1b5dffc5f82a09ccaa61d3ed4273f)
+        ;
+
+        
+    
+    
+            marker_b549355d8a59a48aa2ff8a1e972cb8ff.bindTooltip(
+                `<div>
+                     Vizille — Place du château (approx.) — 8 mars 1944 · 22 août 1944
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0c2fb1acfa80e39c8115e4b305175b4b = L.marker(
+                [45.0798, 5.7798],
+                {}
+            ).addTo(marker_cluster_31801357da6171975cfa0619231ecbb9);
+        
+    
+        var popup_6873ec415764bc9ecfe37b8b3b52a4dc = L.popup({"maxWidth": 420});
+
+        
+            var html_18a05036878e00a5eb398d4d235a419f = $(`<div id="html_18a05036878e00a5eb398d4d235a419f" style="width: 100.0%; height: 100.0%;"><div style='font-size:13px'><b>Vizille — La Glacière (famille Bontoux, approx.)</b><br><b>Commune :</b> Vizille<br><b>Dates :</b> 17 février 1944<br><div style='margin-top:4px'>Jeanne BONTOUX ; Maurice CHAUVIN tués dans la maison. Paul BONTOUX & Charles ROUSSET exécutés en bord de route.</div></div></div>`)[0];
+            popup_6873ec415764bc9ecfe37b8b3b52a4dc.setContent(html_18a05036878e00a5eb398d4d235a419f);
+        
+
+        marker_0c2fb1acfa80e39c8115e4b305175b4b.bindPopup(popup_6873ec415764bc9ecfe37b8b3b52a4dc)
+        ;
+
+        
+    
+    
+            marker_0c2fb1acfa80e39c8115e4b305175b4b.bindTooltip(
+                `<div>
+                     Vizille — La Glacière (famille Bontoux, approx.) — 17 février 1944
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_272f015c1f7ef9c43621b9790b933ac1 = L.marker(
+                [45.085, 5.805],
+                {}
+            ).addTo(marker_cluster_31801357da6171975cfa0619231ecbb9);
+        
+    
+        var popup_22af9c246f975ecd7f61ef55a264bd5e = L.popup({"maxWidth": 420});
+
+        
+            var html_bf1099ea9fc06d0a44a5002b0fe08444 = $(`<div id="html_bf1099ea9fc06d0a44a5002b0fe08444" style="width: 100.0%; height: 100.0%;"><div style='font-size:13px'><b>Croix du Mottet (approx.)</b><br><b>Commune :</b> Entre Vizille et Séchilienne<br><b>Dates :</b> (coordonnées à confirmer)<br><div style='margin-top:4px'>Repère topographique — merci d’indiquer les coordonnées exactes si besoin.</div></div></div>`)[0];
+            popup_22af9c246f975ecd7f61ef55a264bd5e.setContent(html_bf1099ea9fc06d0a44a5002b0fe08444);
+        
+
+        marker_272f015c1f7ef9c43621b9790b933ac1.bindPopup(popup_22af9c246f975ecd7f61ef55a264bd5e)
+        ;
+
+        
+    
+    
+            marker_272f015c1f7ef9c43621b9790b933ac1.bindTooltip(
+                `<div>
+                     Croix du Mottet (approx.) — (coordonnées à confirmer)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e163dcb74456a4c2db5853709c1f5e29 = L.marker(
+                [45.05575, 5.79536],
+                {}
+            ).addTo(marker_cluster_31801357da6171975cfa0619231ecbb9);
+        
+    
+        var popup_96d7a497bd4d88456eb15a3a26e9844c = L.popup({"maxWidth": 420});
+
+        
+            var html_e9d710f78a2eaf796804d07dc7a482f3 = $(`<div id="html_e9d710f78a2eaf796804d07dc7a482f3" style="width: 100.0%; height: 100.0%;"><div style='font-size:13px'><b>Les Rivoirands (coord. exactes)</b><br><b>Commune :</b> Vizille<br><b>Dates :</b> 22 août 1944<br><div style='margin-top:4px'><b>Pedro MARTINEZ‑ALONZO</b> — GM n°2, section Pelletier — tué au combat.<br><b>Charles MERCIOL</b> — tué (≈21h ; circonstances exactes inconnues).<br><i>Point géolocalisé : 45.05575, 5.79536 (WGS84)</i>.</div></div></div>`)[0];
+            popup_96d7a497bd4d88456eb15a3a26e9844c.setContent(html_e9d710f78a2eaf796804d07dc7a482f3);
+        
+
+        marker_e163dcb74456a4c2db5853709c1f5e29.bindPopup(popup_96d7a497bd4d88456eb15a3a26e9844c)
+        ;
+
+        
+    
+    
+            marker_e163dcb74456a4c2db5853709c1f5e29.bindTooltip(
+                `<div>
+                     Les Rivoirands (coord. exactes) — 22 août 1944
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var layer_control_f998152d5c61d979c4fada1ed1e3c15f = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_cc08af417eff3b6bc7e21ee2ddcb0511,
+                },
+                overlays :  {
+                    "Lieux m\u00e9moriels \u0026 \u00e9v\u00e9nements" : feature_group_b4d8898387f6f463e1f90cc2635e6763,
+                },
+            };
+            L.control.layers(
+                layer_control_f998152d5c61d979c4fada1ed1e3c15f.base_layers,
+                layer_control_f998152d5c61d979c4fada1ed1e3c15f.overlays,
+                {"autoZIndex": true, "collapsed": false, "position": "topright"}
+            ).addTo(map_175fc4e3091e038258f576b64e33b257);
+        
+</script>
+</html>
