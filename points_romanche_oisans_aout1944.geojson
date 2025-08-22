@@ -1,0 +1,379 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9031,
+          45.0919
+        ]
+      },
+      "properties": {
+        "name": "Rioupéroux (Livet‑et‑Gavet) — Centre du dispositif",
+        "commune": "Livet‑et‑Gavet (Oisans)",
+        "dates": "≈ 12–21 août 1944 · 22 août 1944",
+        "category": "Combats / Occupation",
+        "popup": "Centre du dispositif allemand & Gestapo (août 1944). 22/08 : combats de repli ; 14e Cie Indochinoise : 3 morts ; 1 capturé puis exécuté."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.8986,
+          45.0511
+        ]
+      },
+      "properties": {
+        "name": "Lac du Poursollet — attaque du 13 août",
+        "commune": "Livet‑et‑Gavet (Poursollet)",
+        "dates": "13 août 1944",
+        "category": "Combats",
+        "popup": "ARMAND · CHARIGLIONE · GILLY · KOÏFMAN · VALLIN (+1 inconnu) tués au combat ; PARDÉ (blessé puis exécuté) ; RIMEY‑MEILLE (exécuté)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.909787,
+          45.091165
+        ]
+      },
+      "properties": {
+        "name": "Les Clots (Rioupéroux) — charniers",
+        "commune": "Livet‑et‑Gavet",
+        "dates": "16–19 août 1944",
+        "category": "Exécutions / Charnier",
+        "popup": "ARRICAU · AZOUZ · BONIFASSI · CARRIER · DUFFAUD · FERRER · HERNANDEZ · JUAN · PORQUET · SUTTER."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.86,
+          45.06
+        ]
+      },
+      "properties": {
+        "name": "Gavet — L’Adret (approx.)",
+        "commune": "Livet‑et‑Gavet (Gavet)",
+        "dates": "14 août 1944",
+        "category": "Exécutions",
+        "popup": "René BOUCHER · Roger BOUYOL · Roger GOUBET · Léonard MATHIEU abattus en fuyant."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.885,
+          45.085
+        ]
+      },
+      "properties": {
+        "name": "Grand Gris (approx.)",
+        "commune": "Livet‑et‑Gavet",
+        "dates": "16 août 1944",
+        "category": "Exécution",
+        "popup": "Un soldat indochinois non identifié tué."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.915,
+          45.095
+        ]
+      },
+      "properties": {
+        "name": "Livet — La Chambre d’eau (approx.)",
+        "commune": "Livet‑et‑Gavet (Livet)",
+        "dates": "14 août 1944",
+        "category": "Exécutions",
+        "popup": "BOUCHET · CERVI · FERLET · MOCELLIN · RÈCHE."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.87,
+          45.055
+        ]
+      },
+      "properties": {
+        "name": "Gavet — Fonfroide (approx.)",
+        "commune": "Livet‑et‑Gavet (Gavet)",
+        "dates": "17 & 19 août 1944",
+        "category": "Exécutions",
+        "popup": "Groupes exécutés (découverts 19 & 22/08). + 18/08 : Max ROBERT exécuté."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.0303,
+          45.0558
+        ]
+      },
+      "properties": {
+        "name": "Le Bourg‑d’Oisans — Salle des fêtes / centre",
+        "commune": "Le Bourg‑d’Oisans",
+        "dates": "13–15 août 1944",
+        "category": "Exécutions / Rafles",
+        "popup": "Rafle (13/08) ; interrogatoires (14/08) ; « Ilats » (15/08)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.012,
+          45.0747
+        ]
+      },
+      "properties": {
+        "name": "La Paute (Bourg‑d’Oisans)",
+        "commune": "Le Bourg‑d’Oisans (La Paute)",
+        "dates": "13–14 août 1944",
+        "category": "Exécutions",
+        "popup": "Nông CHAN‑DINH (13/08) ; Lucien NATANSON (14/08)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.035,
+          45.0635
+        ]
+      },
+      "properties": {
+        "name": "« Les Ilats » (approx.)",
+        "commune": "Le Bourg‑d’Oisans",
+        "dates": "15 août 1944",
+        "category": "Exécutions",
+        "popup": "BRANDSILBER · HALKA · LELIWA‑KOPYTINSKI · MARTZICHEWSKI · UNGER."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.862,
+          45.0275
+        ]
+      },
+      "properties": {
+        "name": "La Morte — Les Combaz (approx.)",
+        "commune": "La Morte",
+        "dates": "13 août 1944",
+        "category": "Exécutions",
+        "popup": "7 FTPF exécutés : BASSANI · DI FILIPPO · NICOLAS‑CHARLES · PABISK · JANDA/YANDA · ZANCANARO · ZUK."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.8675,
+          45.0315
+        ]
+      },
+      "properties": {
+        "name": "La Morte — La Blache (approx.)",
+        "commune": "La Morte",
+        "dates": "14 août 1944",
+        "category": "Exécution",
+        "popup": "Stoslaw NOWAK (FTPF)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.6675,
+          45.138
+        ]
+      },
+      "properties": {
+        "name": "Claix — Les Peyrouses (approx.)",
+        "commune": "Claix",
+        "dates": "27 nov. 1943 · 11 août 1944",
+        "category": "Exécutions",
+        "popup": "Dr Jacques GIRARD (27/11/43) ; Paulette VERDON (11/08/44)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.0383,
+          45.1311
+        ]
+      },
+      "properties": {
+        "name": "Allemont — Contexte & otages",
+        "commune": "Allemont (Allemond)",
+        "dates": "12–16 août 1944",
+        "category": "Occupation / Otages",
+        "popup": "Bombardement (12/08) ; occupation (157e Div. alpine) ; 15 otages transférés (16/08), libérés (20/08)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.0395,
+          45.1318
+        ]
+      },
+      "properties": {
+        "name": "Allemont — Fonderie (approx.)",
+        "commune": "Allemont (Allemond)",
+        "dates": "15 août 1944",
+        "category": "Exécutions",
+        "popup": "Albert ANGELIER ; Léon SAVIOUX — exécutés devant la fonderie."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.046,
+          45.137
+        ]
+      },
+      "properties": {
+        "name": "Allemont — Les Granges (approx.)",
+        "commune": "Allemont (Allemond)",
+        "dates": "16 août 1944",
+        "category": "Exécutions",
+        "popup": "BELLOTTO ; LE BARBU (André) ; LE BARBU (Raymonde) ; OLLIVIER (Roger) ; OLLIVIER (Louise)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.8375,
+          45.0575
+        ]
+      },
+      "properties": {
+        "name": "Séchilienne — Les Clots (stèle, approx.)",
+        "commune": "Séchilienne",
+        "dates": "12 août 1944",
+        "category": "Exécutions",
+        "popup": "Village incendié ; 5 habitants tués : H. & M. BOUJARD · B. KLEINBERG · L. MATHIEU · J. REY."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.8348,
+          45.0542
+        ]
+      },
+      "properties": {
+        "name": "Séchilienne — Combats de repli (centre)",
+        "commune": "Séchilienne",
+        "dates": "22 août 1944",
+        "category": "Combats",
+        "popup": "14e Cie Indochinoise : Lam NGUYEN · Vu Van NGUYEN CHUYEN · Tuho TU TRAN · Lê/Lo VAN LOI."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.829,
+          45.0605
+        ]
+      },
+      "properties": {
+        "name": "Séchilienne — Les Rivoirands (approx.)",
+        "commune": "Séchilienne",
+        "dates": "22 août 1944",
+        "category": "Combats",
+        "popup": "Pedro MARTINEZ‑ALONZO — tué au combat."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.7798,
+          45.0798
+        ]
+      },
+      "properties": {
+        "name": "Vizille — La Glacière (approx.)",
+        "commune": "Vizille",
+        "dates": "17 février 1944",
+        "category": "Exécutions",
+        "popup": "Jeanne BONTOUX ; Maurice CHAUVIN tués dans la maison. Paul BONTOUX & Charles ROUSSET exécutés en bord de route."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.7729,
+          45.0753
+        ]
+      },
+      "properties": {
+        "name": "Vizille — Place du château (approx.)",
+        "commune": "Vizille",
+        "dates": "8 mars 1944 · 22 août 1944",
+        "category": "Exécutions",
+        "popup": "08/03 : Georges DAILLENCOURT exécuté. 22/08 : Mitraillage — JOURDAN · MACHOT · SOUTISON tués."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.783,
+          45.0698
+        ]
+      },
+      "properties": {
+        "name": "Vizille — Les Rivoirands (approx.)",
+        "commune": "Vizille",
+        "dates": "22 août 1944 (≈21h)",
+        "category": "Exécutions",
+        "popup": "Charles MERCIOL — tué (conditions exactes inconnues)."
+      }
+    }
+  ]
+}
