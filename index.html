@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romanche & Oisans — Août 1944</title>
+    <meta name="description" content="Carte interactive historique de la Romanche et l'Oisans en août 1944 (Isère)">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <h1 class="header-title">Romanche & Oisans — Août 1944</h1>
+                <p class="header-subtitle">Mémoire des victimes de la répression nazie</p>
+            </div>
+            <div class="header-right">
+                <button class="btn btn-help" id="helpBtn" aria-label="Aide">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <circle cx="12" cy="17" r="0.5" fill="currentColor"/>
+                    </svg>
+                </button>
+                <button class="btn btn-stats" id="statsBtn" aria-label="Statistiques">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10"/>
+                        <line x1="12" y1="20" x2="12" y2="4"/>
+                        <line x1="6" y1="20" x2="6" y2="14"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">Filtres</h2>
+            <button class="btn-close" id="closeSidebar" aria-label="Fermer">×</button>
+        </div>
+        
+        <div class="sidebar-content">
+            <!-- Filtres par catégorie -->
+            <div class="filter-group">
+                <h3 class="filter-title">Type d'événement</h3>
+                <div class="filter-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="filter-checkbox" data-filter="category" value="executions" checked>
+                        <span class="checkbox-custom"></span>
+                        <span class="checkbox-text">Exécutions <span class="count" id="count-executions">0</span></span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="filter-checkbox" data-filter="category" value="combats" checked>
+                        <span class="checkbox-custom"></span>
+                        <span class="checkbox-text">Combats <span class="count" id="count-combats">0</span></span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="filter-checkbox" data-filter="category" value="civils" checked>
+                        <span class="checkbox-custom"></span>
+                        <span class="checkbox-text">Victimes civiles <span class="count" id="count-civils">0</span></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Période -->
+            <div class="filter-group">
+                <h3 class="filter-title">Période</h3>
+                <div class="date-range">
+                    <input type="date" id="dateStart" class="date-input" value="1944-08-01">
+                    <span class="date-separator">→</span>
+                    <input type="date" id="dateEnd" class="date-input" value="1944-08-31">
+                </div>
+            </div>
+
+            <!-- Communes -->
+            <div class="filter-group">
+                <h3 class="filter-title">Communes</h3>
+                <div class="filter-options" id="communeFilters">
+                    <!-- Généré dynamiquement -->
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-full" id="applyFilters">Appliquer les filtres</button>
+            <button class="btn btn-secondary btn-full" id="resetFilters">Réinitialiser</button>
+        </div>
+    </aside>
+
+    <!-- Panneau d'aide -->
+    <div class="modal" id="helpModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Guide d'utilisation</h2>
+                <button class="btn-close" id="closeHelp">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="help-section">
+                    <h3>🗺️ Navigation</h3>
+                    <ul>
+                        <li>Cliquez sur les marqueurs pour voir les détails des événements</li>
+                        <li>Utilisez la molette ou les boutons +/- pour zoomer</li>
+                        <li>Maintenez et glissez pour déplacer la carte</li>
+                        <li>Utilisez les vues prédéfinies pour un cadrage rapide</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h3>🔍 Filtres</h3>
+                    <ul>
+                        <li>Filtrez par type d'événement (exécutions, combats, civils)</li>
+                        <li>Sélectionnez une période précise</li>
+                        <li>Choisissez des communes spécifiques</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h3>📊 Statistiques</h3>
+                    <ul>
+                        <li>Consultez le nombre total de victimes</li>
+                        <li>Visualisez la répartition par commune</li>
+                        <li>Analysez la chronologie des événements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panneau statistiques -->
+    <div class="modal" id="statsModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Statistiques</h2>
+                <button class="btn-close" id="closeStats">×</button>
+            </div>
+            <div class="modal-body" id="statsContent">
+                <!-- Généré dynamiquement -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toggle sidebar button -->
+    <button class="btn-toggle-sidebar" id="toggleSidebar" aria-label="Ouvrir les filtres">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+    </button>
+
+    <!-- Map container -->
+    <div id="map"></div>
+
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>Chargement des données...</p>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    
+    <!-- PapaParse for CSV -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/carte.js"></script>
+</body>
+</html>

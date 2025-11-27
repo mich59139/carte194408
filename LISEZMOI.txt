@@ -1,0 +1,231 @@
+================================================================================
+    CARTE INTERACTIVE — ROMANCHE & OISANS, AOÛT 1944
+    Version 8.0 — Novembre 2025
+================================================================================
+
+DÉMARRAGE RAPIDE
+================================================================================
+
+1. INSTALLER UN SERVEUR LOCAL
+
+   Option A - Python (recommandé) :
+   
+     Ouvrez un terminal dans ce dossier et tapez :
+     
+       python3 -m http.server 8000
+     
+     Puis ouvrez votre navigateur à : http://localhost:8000
+
+   Option B - Autres méthodes :
+   
+     Consultez GUIDE_RAPIDE.md pour d'autres options
+
+2. OUVRIR LA CARTE
+
+   Dans votre navigateur, allez à :
+   
+     http://localhost:8000/index.html
+   
+   ou simplement :
+   
+     http://localhost:8000
+
+3. C'EST TOUT !
+
+   La carte devrait s'afficher avec tous les marqueurs.
+
+
+FICHIERS IMPORTANTS
+================================================================================
+
+📄 index.html              → Page principale de la carte
+📄 GUIDE_RAPIDE.md         → Guide de démarrage (À LIRE EN PREMIER)
+📄 README.md               → Documentation complète
+📄 COMPARAISON.html        → Comparaison v7 vs v8
+📄 INDEX_DOCUMENTATION.md  → Index de toute la documentation
+
+📁 data/victimes.csv       → VOS DONNÉES (à modifier pour ajouter des victimes)
+📁 css/styles.css          → Styles et couleurs
+📁 js/carte.js             → Logique de la carte
+
+🐍 generate_map.py         → Script de validation des données
+
+
+METTRE À JOUR LES DONNÉES
+================================================================================
+
+1. Ouvrez le fichier : data/victimes.csv
+
+2. Ajoutez une nouvelle ligne avec ces informations :
+   
+   commune,lieu_dit,date,nom,statut,source
+   
+   Exemple :
+   Vizille,Place du château,1944-08-22,Jean DUPONT,Exécuté,Source XYZ
+
+3. Sauvegardez le fichier
+
+4. Rechargez la page dans votre navigateur
+
+5. ATTENTION : Si c'est un nouveau lieu, vous devez ajouter ses coordonnées
+   GPS dans le fichier js/carte.js (voir la fonction getLocationCoordinates)
+
+6. Pour vérifier vos données, lancez :
+   
+     python3 generate_map.py
+
+
+PERSONNALISER
+================================================================================
+
+COULEURS :
+
+  Ouvrez css/styles.css et modifiez la section :root en haut du fichier
+
+LOGO :
+
+  Placez votre logo dans assets/ et mettez à jour index.html
+
+VUES PRÉDÉFINIES :
+
+  Modifiez la section CONFIG dans js/carte.js
+
+
+PROBLÈMES COURANTS
+================================================================================
+
+❌ La carte est blanche / ne charge pas
+
+   → Vous DEVEZ utiliser un serveur local
+   → Double-cliquer sur index.html NE FONCTIONNERA PAS
+   → Solution : python3 -m http.server 8000
+
+❌ Les marqueurs ne s'affichent pas
+
+   → Vérifiez que les lieux ont des coordonnées GPS
+   → Lancez : python3 generate_map.py
+   → Cela vous dira quels lieux manquent de coordonnées
+
+❌ Le fichier CSV ne se charge pas
+
+   → Vérifiez que data/victimes.csv existe
+   → Vérifiez la console du navigateur (touche F12)
+   → Vérifiez le chemin dans js/carte.js
+
+❌ Les filtres ne fonctionnent pas
+
+   → Cliquez sur "Appliquer les filtres" après vos modifications
+   → Vérifiez la console (F12) pour des erreurs
+
+
+STATISTIQUES
+================================================================================
+
+Ce projet contient :
+
+  • 93 victimes recensées
+  • 7 communes touchées
+  • 24 lieux distincts
+  • Période : 17 février - 22 août 1944
+
+Le code comprend :
+
+  • ~1845 lignes de code (HTML + CSS + JavaScript + Python)
+  • ~500 lignes de documentation
+  • 0 dépendance à installer (tout en CDN)
+
+
+STRUCTURE DU PROJET
+================================================================================
+
+carte_romanche_v8/
+│
+├── index.html                 ← PAGE PRINCIPALE
+│
+├── css/
+│   └── styles.css             ← Tous les styles
+│
+├── js/
+│   └── carte.js               ← Logique de la carte
+│
+├── data/
+│   └── victimes.csv           ← VOS DONNÉES
+│
+├── assets/
+│   └── (vos images)
+│
+├── Documentation :
+│   ├── GUIDE_RAPIDE.md        ← COMMENCEZ ICI
+│   ├── README.md              ← Doc complète
+│   ├── SYNTHESE.md            ← Vue d'ensemble
+│   ├── COMPARAISON.html       ← v7 vs v8
+│   └── INDEX_DOCUMENTATION.md ← Index des docs
+│
+└── Outils :
+    ├── generate_map.py        ← Validation
+    ├── .gitignore             ← Pour Git
+    └── _config.yml            ← Pour GitHub Pages
+
+
+DÉPLOIEMENT EN LIGNE
+================================================================================
+
+GITHUB PAGES (gratuit) :
+
+  1. Créez un compte GitHub
+  2. Créez un nouveau dépôt
+  3. Uploadez tous les fichiers
+  4. Allez dans Settings → Pages
+  5. Activez GitHub Pages
+  6. Votre carte sera en ligne !
+
+AUTRE HÉBERGEUR :
+
+  1. Uploadez tous les fichiers
+  2. Assurez-vous que index.html est à la racine
+  3. C'est tout !
+
+
+AIDE
+================================================================================
+
+Pour plus d'informations :
+
+  • Lisez GUIDE_RAPIDE.md (essentiel)
+  • Consultez README.md (technique)
+  • Ouvrez COMPARAISON.html (visuel)
+  • Consultez INDEX_DOCUMENTATION.md (index complet)
+
+Pour les erreurs :
+
+  1. Ouvrez la console du navigateur (F12)
+  2. Lancez python3 generate_map.py
+  3. Consultez la section "Dépannage" du GUIDE_RAPIDE.md
+
+
+LICENCE
+================================================================================
+
+  • Code source : Libre pour usage éducatif et mémoriel
+  • Données historiques : Sources citées (Maitron, Archives)
+  • Cartographie : OpenStreetMap (ODbL License)
+
+
+CONTACT
+================================================================================
+
+  Pour toute question sur le projet :
+  
+  → Consultez d'abord la documentation
+  → Vérifiez les problèmes courants ci-dessus
+  → Consultez la console du navigateur (F12)
+
+
+================================================================================
+  Ce projet est dédié à la mémoire des victimes de la répression nazie
+  dans la vallée de la Romanche et l'Oisans en août 1944.
+  
+  Leur sacrifice ne sera jamais oublié. 🕊️
+================================================================================
+
+Créé avec soin et respect — Novembre 2025
